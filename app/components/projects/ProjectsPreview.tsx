@@ -23,7 +23,7 @@ const projects = [
 
 export default function ProjectsPreview() {
     return (
-        <section className="mb-30">
+        <section className="py-16 md:py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="mb-10 text-center">
                     <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-3">portfolio</p>

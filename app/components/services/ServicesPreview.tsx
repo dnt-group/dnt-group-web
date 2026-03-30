@@ -35,7 +35,7 @@ const services = [
 
 export default function ServicesPreview() {
   return (
-    <section className="my-30 bg-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="max-w-xl mb-10 lg:mb-14">
         <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-3">
