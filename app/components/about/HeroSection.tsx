@@ -14,13 +14,13 @@ export default function HeroSection() {
   
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-2xl">
-            <p className="text-sm font-body font-semibold uppercase tracking-[0.25em] text-tertiary mb-6">
+            <p className="text-sm font-body font-semibold uppercase tracking-[0.25em] text-tertiary mb-4">
               Hotel Management Excellence
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-white leading-tight mb-6">
               Crafting Exceptional Hospitality Experiences
             </h1>
-            <p className="text-base md:text-lg font-body text-white/80 leading-relaxed mb-10 max-w-lg">
+            <p className="text-base md:text-lg font-body text-white/80 leading-relaxed mb-8 max-w-lg">
               DNT Group brings decades of expertise in hotel management, development, 
               and consulting to create world-class hospitality destinations.
             </p>

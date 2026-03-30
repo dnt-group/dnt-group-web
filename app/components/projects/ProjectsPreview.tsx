@@ -25,8 +25,10 @@ export default function ProjectsPreview() {
     return (
         <section className="py-16 md:py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="mb-10 text-center">
-                    <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-3">portfolio</p>
+                <div className="mb-12 md:mb-16 text-center">
+                    <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-4">
+                        Portfolio
+                    </p>
                     <h2 className="text-3xl md:text-4xl font-heading font-semibold text-primary">
                         Explore Our Projects
                     </h2>
@@ -53,7 +55,7 @@ export default function ProjectsPreview() {
                         </div>
                     ))}
                 </div>       
-                <div className="mt-12 lg:mt-16 flex items-center gap-6 justify-center">
+                <div className="mt-12 md:mt-16 flex items-center gap-6 justify-center">
                     <Link
                         href="/projects"
                         className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary hover:text-tertiary transition-colors duration-300"
