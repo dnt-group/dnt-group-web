@@ -21,12 +21,13 @@ const projects = [
     }
 ];
 
-export default function FeatureProjects() {
+export default function ProjectsPreview() {
     return (
-        <section className="py-20 lg:py-28">
+        <section className="mb-30">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <div className="mb-10 text-center">
-                    <h2 className="text-2xl font-bold tracking-widest uppercase text-gray-900 sm:text-3xl">
+                    <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-3">portfolio</p>
+                    <h2 className="text-3xl md:text-4xl font-heading font-semibold text-primary">
                         Explore Our Projects
                     </h2>
                 </div>
@@ -51,14 +52,20 @@ export default function FeatureProjects() {
                             </div>
                         </div>
                     ))}
-                </div>
-
-                <div className="text-center mt-12">
+                </div>       
+                <div className="mt-12 lg:mt-16 flex items-center gap-6 justify-center">
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-tertiary hover:text-copper transition-colors"
+                        className="group inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary hover:text-tertiary transition-colors duration-300"
                     >
+                        <span className="w-10 h-px bg-primary group-hover:w-16 group-hover:bg-tertiary transition-all duration-300 inline-block" />
                         View All Projects
+                        <svg
+                            className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                     </Link>
                 </div>
             </div>
