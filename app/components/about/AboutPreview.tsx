@@ -13,26 +13,23 @@ export default function AboutPreview() {
                         />
                     </div>
                     <div>
-                        <p className="text-sm font-body font-semibold uppercase tracking-[0.2em] text-tertiary mb-4">
+                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-tertiary mb-4">
                             About DNT Group
                         </p>
-                        <h2 className="text-3xl md:text-4xl font-heading font-semibold text-primary mb-10">
-                            Two Decades of Hospitality Leadership
+                        <h2 className="text-3xl md:text-4xl font-semibold text-primary mb-6">
+                            A Professional Hotel Management Company Built on Expertise
                         </h2>
                         <div className="space-y-4 mb-8">
-                            <p className="text-base font-body text-primary/65 leading-relaxed">
-                                Founded in 2005, DNT Group has established itself as a premier hotel management
-                                company with a portfolio spanning luxury resorts, boutique hotels, and urban
-                                hospitality concepts across multiple continents.
+                            <p className="text-base text-primary/65 leading-relaxed">
+                                DNT Group specializes in the successful operation and development of small, medium, and large hospitality projects. Our team brings together experienced industry professionals, hotel owners, and investors with deep knowledge of the hospitality market.
                             </p>
-                            <p className="text-base font-body text-primary/65 leading-relaxed">
-                                Our approach combines deep industry knowledge with innovative management practices
-                                to maximize performance while delivering unforgettable guest experiences.
+                            <p className="text-base text-primary/65 leading-relaxed">
+                                From early-stage concept development to full operational management, we provide clear direction, structured planning, and hands-on leadership to ensure every project reaches its full potential.
                             </p>
                         </div>
                         <Link
                             href="/about"
-                            className="inline-block bg-primary rounded-full text-white px-8 py-3.5 text-sm font-body font-semibold uppercase tracking-wider hover:opacity-90"
+                            className="inline-block bg-primary rounded-full text-white px-8 py-3.5 text-sm font-semibold uppercase tracking-wider hover:opacity-90"
                         >
                             Learn More
                         </Link>
