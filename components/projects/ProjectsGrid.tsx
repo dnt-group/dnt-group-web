@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { projects, filters, type Filter } from "../data";
+import { projects, filters, type Filter } from "../../app/projects/data";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectsGrid() {

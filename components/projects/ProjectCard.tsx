@@ -1,4 +1,4 @@
-import type { Project } from "../data";
+import type { Project } from "../../app/projects/data";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
