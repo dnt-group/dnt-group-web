@@ -11,7 +11,7 @@ export default function HeroSection() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/videos/hero-background.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/1170/1170-720.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-primary/60" />
         </div>
