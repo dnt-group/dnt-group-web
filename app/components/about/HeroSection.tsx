@@ -4,11 +4,15 @@ export default function HeroSection() {
     return (
       <section className="relative h-[95vh] min-h-[600px] flex items-center">
         <div className="absolute inset-0">
-          <img
-            src="https://media.base44.com/images/public/69ca726767f2d4ba825c17dd/f743d57a0_generated_05dd9cd5.png"
-            alt="Luxury hotel lobby"
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
-          />
+          >
+            <source src="/videos/hero-background.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-primary/60" />
         </div>
   
