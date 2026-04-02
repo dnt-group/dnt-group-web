@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 
 export default function ContactHero() {
   return (
-    <section className="bg-slate-50 py-20 lg:py-28">
+    <section className="bg-white border-b border-slate-100 py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 mb-12 lg:mb-16 items-end">
           <div>
