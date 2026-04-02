@@ -35,7 +35,7 @@ const contactItems = [
     label: "Email",
     content: (
       <a href="mailto:info@dntgroup.com" className="text-sm text-slate-700 hover:text-secondary transition-colors">
-        info@dntgroup.com
+        contact@dntgroup.com
       </a>
     ),
   },
