@@ -1,13 +1,17 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import type { Project } from "@/app/[locale]/projects/data";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations("projects.status");
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all duration-300">
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group block bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all duration-300"
+    >
       <div className="overflow-hidden aspect-[4/3]">
         <img
           src={project.img}
@@ -32,7 +36,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
 
-        <h3 className="font-bold text-slate-900 text-lg mb-1">
+        <h3 className="font-bold text-slate-900 text-lg mb-1 group-hover:text-secondary transition-colors duration-200">
           {project.title}
         </h3>
 
@@ -63,6 +67,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           {project.desc}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
