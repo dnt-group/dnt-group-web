@@ -1,11 +1,14 @@
-import Link from "next/link";
-import { Service } from "../../app/services/data";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { Service } from "@/app/[locale]/services/data";
 
 interface ServiceCardProps {
   service: Service;
 }
 
 export default function ServiceCard({ service }: ServiceCardProps) {
+  const t = useTranslations("services.card");
+
   return (
     <section className="bg-white py-20 lg:py-28 group">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -48,7 +51,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary hover:text-secondary transition-colors duration-300 group/link"
             >
               <span className="w-8 h-px bg-primary group-hover/link:w-12 group-hover/link:bg-secondary transition-all duration-300 inline-block" />
-              Discuss This Service
+              {t("discuss")}
               <svg
                 className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300"
                 fill="none"

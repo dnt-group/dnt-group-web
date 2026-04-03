@@ -1,11 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { projects, filters, type Filter } from "../../app/projects/data";
+import { useTranslations } from "next-intl";
+import { projects, type Filter } from "@/app/[locale]/projects/data";
 import ProjectCard from "./ProjectCard";
 
 export default function ProjectsGrid() {
+  const t = useTranslations("projects");
   const [active, setActive] = useState<Filter>("all");
+
+  const filters: { value: Filter; labelKey: string }[] = [
+    { value: "all", labelKey: "filters.all" },
+    { value: "ongoing", labelKey: "filters.ongoing" },
+    { value: "completed", labelKey: "filters.completed" },
+  ];
 
   const filtered = projects.filter((p) =>
     active === "all" ? true : p.status === active
@@ -25,7 +33,7 @@ export default function ProjectsGrid() {
                   : "bg-white border border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
               }`}
             >
-              {f.label}
+              {t(f.labelKey)}
               <span
                 className={`ml-2 text-xs ${
                   active === f.value ? "text-white/60" : "text-slate-300"
@@ -41,7 +49,7 @@ export default function ProjectsGrid() {
 
         {filtered.length === 0 ? (
           <div className="text-center py-24 text-slate-400 text-sm">
-            No projects found.
+            {t("empty")}
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

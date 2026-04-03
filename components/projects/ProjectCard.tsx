@@ -1,6 +1,11 @@
-import type { Project } from "../../app/projects/data";
+"use client";
+
+import { useTranslations } from "next-intl";
+import type { Project } from "@/app/[locale]/projects/data";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const t = useTranslations("projects.status");
+
   return (
     <div className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:shadow-lg hover:border-slate-300 transition-all duration-300">
       <div className="overflow-hidden aspect-[4/3]">
@@ -23,7 +28,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 : "bg-green-50 text-green-600"
             }`}
           >
-            {project.status}
+            {t(project.status)}
           </span>
         </div>
 

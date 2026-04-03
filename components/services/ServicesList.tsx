@@ -1,4 +1,4 @@
-import { Service } from "../../app/services/data";
+import { Service } from "@/app/[locale]/services/data";
 import ServiceCard from "./ServiceCard";
 
 interface ServicesListProps {

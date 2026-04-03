@@ -1,0 +1,290 @@
+{
+  "metadata": {
+    "title": "DNT Group - Hotel Management Company",
+    "description": "DNT Group is a professional hotel management company specializing in the successful operation and development of small, medium, and large hospitality projects."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "career": "Career",
+    "contact": "Contact",
+    "blogs": "Blogs"
+  },
+  "header": {
+    "logoAlt": "DNT Group Logo",
+    "toggleMenu": "Toggle menu",
+    "language": "Language"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© {year} DNT Group. All rights reserved.",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Hotel Management Excellence",
+      "title": "Maximizing Hotel Performance Through Expert Management",
+      "description": "DNT Group delivers comprehensive hotel management services that transform properties into thriving hospitality destinations. From operational excellence to revenue optimization, we handle every aspect of your hotel's success.",
+      "servicesBtn": "Our Services",
+      "contactBtn": "Get in Touch"
+    },
+    "about": {
+      "imageAlt": "DNT Group office",
+      "subtitle": "About DNT Group",
+      "title": "A Trusted Partner in Hospitality Management",
+      "description1": "For over a decade, DNT Group has been at the forefront of hotel management, helping properties across the region achieve operational excellence and sustainable growth.",
+      "description2": "Our team of seasoned hospitality professionals brings deep industry knowledge and a results-driven approach to every property we manage.",
+      "learnMore": "Learn More"
+    },
+    "statistics": {
+      "properties": {
+        "label": "Properties Managed",
+        "description": "Hotels and resorts under our management"
+      },
+      "revenue": {
+        "label": "Revenue Growth",
+        "description": "Average increase for our partners"
+      },
+      "guests": {
+        "label": "Guest Satisfaction",
+        "description": "Average rating across properties"
+      },
+      "experience": {
+        "label": "Years Experience",
+        "description": "In hospitality management"
+      }
+    },
+    "services": {
+      "subtitle": "What We Do",
+      "title": "Everything your property needs to thrive",
+      "viewAll": "View All Services",
+      "items": {
+        "operations": {
+          "title": "Operations Management",
+          "description": "End-to-end operational oversight ensuring seamless daily operations and exceptional guest experiences."
+        },
+        "revenue": {
+          "title": "Revenue Management",
+          "description": "Data-driven pricing strategies and distribution optimization to maximize your property's revenue potential."
+        },
+        "marketing": {
+          "title": "Sales & Marketing",
+          "description": "Strategic marketing campaigns and sales initiatives that drive bookings and build brand awareness."
+        },
+        "financial": {
+          "title": "Financial Management",
+          "description": "Comprehensive financial planning, budgeting, and reporting for complete fiscal transparency."
+        },
+        "hr": {
+          "title": "Human Resources",
+          "description": "Talent acquisition, training programs, and team development to build high-performing hospitality teams."
+        },
+        "quality": {
+          "title": "Quality Assurance",
+          "description": "Rigorous quality standards and continuous improvement programs to maintain service excellence."
+        }
+      }
+    },
+    "projects": {
+      "subtitle": "Portfolio",
+      "title": "Explore Our Projects",
+      "viewAll": "View All Projects"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Property?",
+      "description": "Partner with DNT Group and discover how our expert hotel management services can elevate your property's performance and guest satisfaction.",
+      "button": "Contact Us Today"
+    }
+  },
+  "about": {
+    "hero": {
+      "subtitle": "About Us",
+      "title": "Driving Excellence in Hospitality Management",
+      "description1": "DNT Group is a leading hotel management company dedicated to maximizing the potential of hospitality properties. With deep industry expertise and a commitment to operational excellence, we partner with hotel owners to deliver exceptional results.",
+      "description2": "Our approach combines proven management methodologies with innovative strategies, ensuring each property we manage achieves optimal performance in today's competitive hospitality landscape.",
+      "description3": "From boutique hotels to large resort properties, we bring the same dedication to quality, efficiency, and guest satisfaction that has made us a trusted name in hospitality management.",
+      "description4": "We believe in building lasting partnerships based on transparency, performance, and mutual success."
+    },
+    "purpose": {
+      "title": "Our Purpose",
+      "description": "To elevate hospitality standards by providing exceptional management services that create memorable experiences for guests while delivering sustainable value for property owners.",
+      "missionTitle": "Our Mission",
+      "missionDescription": "To be the preferred hotel management partner in the region, known for operational excellence, innovative solutions, and measurable results that exceed expectations."
+    },
+    "values": {
+      "excellence": {
+        "title": "Excellence",
+        "description": "We pursue the highest standards in everything we do, from guest services to operational efficiency."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We build relationships on trust, transparency, and honest communication with all stakeholders."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace new technologies and methodologies to stay ahead in the evolving hospitality industry."
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We view every client relationship as a true partnership, aligned toward shared success."
+      }
+    },
+    "team": {
+      "subtitle": "Team",
+      "title": "Industry Experts Driving Hotel Success",
+      "description": "Our leadership team brings decades of combined experience in hospitality management, bringing expertise from international hotel brands and independent properties alike.",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "results": {
+      "subtitle": "Our Results",
+      "title": "Proven Track Record of Success",
+      "description": "Our portfolio of managed properties consistently outperforms market benchmarks. We measure our success through tangible results—increased revenue, improved guest satisfaction, and operational efficiency.",
+      "contactBtn": "Get in Touch",
+      "servicesBtn": "Our Services"
+    }
+  },
+  "services": {
+    "hero": {
+      "subtitle": "Services",
+      "title": "Comprehensive Hotel Management Solutions",
+      "description": "From daily operations to strategic planning, DNT Group provides full-spectrum management services designed to optimize performance and elevate guest experiences."
+    },
+    "card": {
+      "discuss": "Discuss This Service"
+    },
+    "cta": {
+      "subtitle": "Work With Us",
+      "title": "Ready to Elevate Your Property?",
+      "description": "Let's discuss how our management services can transform your hotel's performance. Our team is ready to create a customized solution for your property.",
+      "contactBtn": "Get in Touch",
+      "projectsBtn": "View Our Projects"
+    }
+  },
+  "projects": {
+    "hero": {
+      "subtitle": "Our Portfolio",
+      "title": "Properties We've Transformed",
+      "description": "Explore our portfolio of successfully managed hotels and resorts across the region, each representing our commitment to operational excellence."
+    },
+    "filters": {
+      "all": "All Projects",
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
+    "status": {
+      "ongoing": "Ongoing",
+      "completed": "Completed"
+    },
+    "empty": "No projects found.",
+    "cta": {
+      "subtitle": "Work With Us",
+      "title": "Let's Create Success Together",
+      "description": "Ready to see similar results for your property? Contact us to discuss how DNT Group can help transform your hotel's performance.",
+      "contactBtn": "Get in Touch",
+      "servicesBtn": "Our Services"
+    }
+  },
+  "contact": {
+    "hero": {
+      "subtitle": "Contact Us",
+      "title": "Let's Discuss Your Property",
+      "description": "Whether you're looking for full management services or specific operational support, we're here to help. Reach out to start the conversation."
+    },
+    "info": {
+      "title": "Get in Touch",
+      "office": "Office",
+      "phone": "Phone",
+      "email": "Email",
+      "workingHours": "Working Hours",
+      "hours": "Monday - Friday: 9:00 - 18:00",
+      "responseNote": "We typically respond within 24 business hours."
+    },
+    "form": {
+      "title": "Send us a message",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "John Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+995 555 000 000",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your property and how we can help...",
+      "sending": "Sending...",
+      "submit": "Send Message",
+      "successTitle": "Message Sent",
+      "successMessage": "Thank you for reaching out. Our team will review your message and get back to you within 24 hours."
+    },
+    "map": {
+      "openInMaps": "Open in Maps"
+    }
+  },
+  "career": {
+    "hero": {
+      "subtitle": "Careers",
+      "title": "Build Your Career in Hospitality"
+    },
+    "positions": {
+      "title": "Open Positions",
+      "roles": "Roles",
+      "role": "Role",
+      "applyNow": "Apply Now"
+    },
+    "filters": {
+      "all": "All"
+    },
+    "general": {
+      "title": "Don't See Your Role?",
+      "description": "We're always looking for talented individuals to join our team. Send us your CV and we'll keep you in mind for future opportunities.",
+      "button": "General Application"
+    },
+    "modal": {
+      "generalTitle": "General Application",
+      "applyFor": "Apply for",
+      "sendCv": "Send Your CV",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "email": "Email Address",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+995 555 000 000",
+      "coverLetter": "Cover Letter / Message",
+      "coverLetterPlaceholder": "Tell us about yourself and why you'd be a great fit...",
+      "cv": "CV / Resume",
+      "cvUpload": "Upload PDF or Word document",
+      "submitting": "Submitting...",
+      "submit": "Submit Application",
+      "successTitle": "Application Sent",
+      "successMessage": "Thank you for your application. Our HR team will review it and contact you if there's a suitable match.",
+      "close": "Close"
+    }
+  },
+  "blogs": {
+    "hero": {
+      "subtitle": "Blogs",
+      "title": "Hospitality Insights & Industry Thinking",
+      "description": "Perspectives on hotel management, industry trends, and operational excellence from our team of hospitality experts."
+    },
+    "featured": "Featured",
+    "read": "Read",
+    "backToBlogs": "Back to Blogs",
+    "author": "DNT Group",
+    "minRead": "min read",
+    "contents": "Contents",
+    "talkToTeam": "Talk to Our Team",
+    "relatedArticles": "Related Articles"
+  },
+  "common": {
+    "address": "123 Hospitality Ave, Tbilisi, Georgia",
+    "phone": "+995 555 000 000",
+    "email": "info@dntgroup.com"
+  }
+}
