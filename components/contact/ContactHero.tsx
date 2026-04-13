@@ -1,8 +1,9 @@
 import { useTranslations } from "next-intl";
 import ContactInfo from "./ContactInfo";
 import ContactForm from "./ContactForm";
+import type { ContactSettings } from "@/lib/sanity/contact";
 
-export default function ContactHero() {
+export default function ContactHero({ contact }: { contact: ContactSettings }) {
   const t = useTranslations("contact.hero");
 
   return (
@@ -25,7 +26,7 @@ export default function ContactHero() {
         <div className="w-full h-px bg-slate-200 mb-12 lg:mb-16" />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          <ContactInfo />
+          <ContactInfo contact={contact} />
           <ContactForm />
         </div>
       </div>

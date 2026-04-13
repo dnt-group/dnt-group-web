@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import type { ContactSettings } from "@/lib/sanity/contact";
 
-export default function ContactInfo() {
+export default function ContactInfo({ contact }: { contact: ContactSettings }) {
   const t = useTranslations("contact.info");
-  const tCommon = useTranslations("common");
 
   const contactItems = [
     {
@@ -32,7 +32,7 @@ export default function ContactInfo() {
       label: t("office"),
       content: (
         <p className="text-sm text-slate-700 leading-relaxed">
-          {tCommon("address")}
+          {contact.address}
         </p>
       ),
     },
@@ -55,10 +55,10 @@ export default function ContactInfo() {
       label: t("phone"),
       content: (
         <a
-          href={`tel:${tCommon("phone").replace(/\s/g, "")}`}
+          href={`tel:${contact.phone.replace(/\s/g, "")}`}
           className="text-sm text-slate-700 hover:text-secondary transition-colors"
         >
-          {tCommon("phone")}
+          {contact.phone}
         </a>
       ),
     },
@@ -81,10 +81,10 @@ export default function ContactInfo() {
       label: t("email"),
       content: (
         <a
-          href={`mailto:${tCommon("email")}`}
+          href={`mailto:${contact.email}`}
           className="text-sm text-slate-700 hover:text-secondary transition-colors"
         >
-          {tCommon("email")}
+          {contact.email}
         </a>
       ),
     },
@@ -105,7 +105,7 @@ export default function ContactInfo() {
         </svg>
       ),
       label: t("workingHours"),
-      content: <p className="text-sm text-slate-700">{t("hours")}</p>,
+      content: <p className="text-sm text-slate-700">{contact.workingHours}</p>,
     },
   ];
 
@@ -129,10 +129,6 @@ export default function ContactInfo() {
         ))}
       </div>
 
-      <div className="w-full h-px bg-slate-200 mb-8" />
-      <p className="text-xs text-slate-400 leading-relaxed">
-        {t("responseNote")}
-      </p>
     </div>
   );
 }

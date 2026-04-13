@@ -2,14 +2,9 @@ import { useTranslations } from "next-intl";
 import type { StatValues } from "@/lib/sanity/about";
 
 const statKeys = ["properties", "revenue", "guests", "experience"] as const;
-const fallbackValues: StatValues = {
-  properties: "20+",
-  revenue: "30%",
-  guests: "95%",
-  experience: "10+",
-};
 
-export default function AboutHero({ statValues = fallbackValues }: { statValues?: StatValues }) {
+
+export default function AboutHero({ statValues }: { statValues: StatValues }) {
   const t = useTranslations("about.hero");
   const tStats = useTranslations("home.statistics");
 

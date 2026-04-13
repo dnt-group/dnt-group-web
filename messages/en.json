@@ -202,16 +202,14 @@
       "office": "Office",
       "phone": "Phone",
       "email": "Email",
-      "workingHours": "Working Hours",
-      "hours": "Monday - Friday: 9:00 - 18:00",
-      "responseNote": "We typically respond within 24 business hours."
+      "workingHours": "Working Hours"
     },
     "form": {
       "title": "Send us a message",
       "fullName": "Full Name",
-      "fullNamePlaceholder": "John Doe",
+      "fullNamePlaceholder": "Your Name",
       "email": "Email Address",
-      "emailPlaceholder": "john@example.com",
+      "emailPlaceholder": "your@email.com",
       "phone": "Phone Number",
       "phonePlaceholder": "+995 555 000 000",
       "message": "Message",
