@@ -2,10 +2,15 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { projects, type Filter } from "@/app/[locale]/projects/data";
+
+import { getProjects } from "@/lib/sanity/project";
 import ProjectCard from "./ProjectCard";
 
-export default function ProjectsGrid() {
+type Filter = "all" | "ongoing" | "completed";
+
+type Project = Awaited<ReturnType<typeof getProjects>>[number];
+
+export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   const t = useTranslations("projects");
   const [active, setActive] = useState<Filter>("all");
 
@@ -54,7 +59,7 @@ export default function ProjectsGrid() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+              <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         )}

@@ -1,29 +1,12 @@
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getProjects } from "@/lib/sanity/project";
 
-const projects = [
-  {
-    img: "https://dnt-group-sq0469ba.durable.site/_next/image?url=https%3A%2F%2Frjdavx8ozyznxeyh.public.blob.vercel-storage.com%2Fproduction%2Fwebsites%2Fuploaded-media%2F3Q6A7105-fZfUA7vFkYtszP1NqFrmpc19udXGL0.jpg&w=750&q=75",
-    title: "Restaurant TAGHI",
-    location: "Tbilisi, Georgia",
-    type: "Restaurant",
-  },
-  {
-    img: "https://dnt-group-sq0469ba.durable.site/_next/image?url=https%3A%2F%2Frjdavx8ozyznxeyh.public.blob.vercel-storage.com%2Fproduction%2Fwebsites%2Fuploaded-media%2FDSC00156%2520%25D0%25BA%25D0%25BE%25D0%25BF%25D0%25B8%25D1%258F%2520copy-6NjvAfh0EnXbYLlHhCTVrgVScXzWZI.jpg&w=750&q=75",
-    title: "Makmani Boutique Hotel",
-    location: "Tbilisi, Georgia",
-    type: "Hotel",
-  },
-  {
-    img: "https://dnt-group-sq0469ba.durable.site/_next/image?url=https%3A%2F%2Frjdavx8ozyznxeyh.public.blob.vercel-storage.com%2Fproduction%2Fwebsites%2Fuploaded-media%2FNK209674-Xi8iSitpSMDWrufTOs4qm6v2Opvddb.jpg&w=750&q=75",
-    title: "Hotel Memoir Kazbegi",
-    location: "Kazbegi, Georgia",
-    type: "Hotel",
-  },
-];
-
-export default function ProjectsPreview() {
-  const t = useTranslations("home.projects");
+export default async function ProjectsPreview() {
+  const locale = await getLocale();
+  const projects = await getProjects(locale);
+  const previewProjects = projects.filter((project) => project.showInPreview).slice(0, 3);
+  const t = await getTranslations("home.projects");
 
   return (
     <section className="py-16 md:py-24 bg-gray-50">
@@ -37,8 +20,8 @@ export default function ProjectsPreview() {
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <div key={project.title} className="group">
+          {previewProjects.map((project) => (
+            <Link key={project.id} href={`/projects/${project.slug}`} className="group block">
               <div className="overflow-hidden">
                 <img
                   src={project.img}
@@ -57,7 +40,7 @@ export default function ProjectsPreview() {
                   {project.location}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="mt-12 md:mt-16 flex items-center gap-6 justify-center">

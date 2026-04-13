@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import type { Project } from "@/app/[locale]/projects/data";
+import type { Project } from "@/lib/sanity/project";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations("projects.status");
