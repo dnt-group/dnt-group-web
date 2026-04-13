@@ -1,9 +1,15 @@
 import { useTranslations } from "next-intl";
+import type { StatValues } from "@/lib/sanity/about";
 
 const statKeys = ["properties", "revenue", "guests", "experience"] as const;
-const statValues = ["20+", "30%", "95%", "10+"];
+const fallbackValues: StatValues = {
+  properties: "20+",
+  revenue: "30%",
+  guests: "95%",
+  experience: "10+",
+};
 
-export default function Statistics() {
+export default function Statistics({ statValues = fallbackValues }: { statValues?: StatValues }) {
   const t = useTranslations("home.statistics");
 
   return (
@@ -16,7 +22,7 @@ export default function Statistics() {
               className="relative group text-center p-4 md:p-6 rounded-xl md:rounded-2xl bg-white border-l-4 border-tertiary shadow-sm hover:shadow-md transition-all duration-300"
             >
               <span className="block text-2xl md:text-5xl lg:text-6xl font-bold text-primary mb-1 md:mb-2">
-                {statValues[index]}
+                {statValues[key]}
               </span>
               <span className="block text-xs md:text-sm font-display font-semibold uppercase text-gray-900 mb-1">
                 {t(`${key}.label`)}

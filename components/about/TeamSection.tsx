@@ -2,83 +2,12 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import type { TeamMember } from "@/lib/sanity/about";
 
-const team = [
-  {
-    id: 1,
-    name: "Davit Meskhi",
-    role: "Chief Executive Officer",
-    bio: "10+ years leading hospitality operations across Georgia and Eastern Europe.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Nino Lomidze",
-    role: "Chief Operations Officer",
-    bio: "Expert in scaling boutique hotel brands with a focus on guest satisfaction.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/3.jpg",
-  },
-  {
-    id: 3,
-    name: "Tata Gotvadze",
-    role: "Head of Revenue Management",
-    bio: "Data-driven strategist with a track record of 30%+ revenue uplifts.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/4.jpg",
-  },
-  {
-    id: 4,
-    name: "Nino Danelia",
-    role: "Director of Development",
-    bio: "Guides new hotel concepts from feasibility study to grand opening.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/5.jpg",
-  },
-  {
-    id: 5,
-    name: "Avto Lomidze",
-    role: "Head of Marketing",
-    bio: "Builds compelling brand stories that attract guests and drive direct bookings.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/11.jpg",
-  },
-  {
-    id: 6,
-    name: "Lika Gasviani",
-    role: "Guest Experience Director",
-    bio: "Obsessed with the details that turn first-time visitors into loyal guests.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/9.jpg",
-  },
-  {
-    id: 7,
-    name: "Davit Meskhi",
-    role: "Financial Director",
-    bio: "Drives financial strategy and reporting across all managed properties.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/1.jpg",
-  },
-  {
-    id: 8,
-    name: "Nino Lomidze",
-    role: "HR & Training Manager",
-    bio: "Builds world-class hospitality teams through structured development programs.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/3.jpg",
-  },
-  {
-    id: 9,
-    name: "Tata Gotvadze",
-    role: "Sales Director",
-    bio: "Grows revenue through strategic partnerships and direct sales channels.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/4.jpg",
-  },
-  {
-    id: 10,
-    name: "Nino Danelia",
-    role: "Quality Assurance Manager",
-    bio: "Maintains service excellence through rigorous standards and auditing.",
-    img: "https://dntgroup.ge/modules/our_experts/uploads/5.jpg",
-  },
-];
-
-function TeamSlider() {
+function TeamSlider({ team }: { team: TeamMember[] }) {
   const t = useTranslations("about.team");
   const sliderRef = useRef<HTMLDivElement>(null);
+  
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -120,33 +49,28 @@ function TeamSlider() {
     if (sliderRef.current) sliderRef.current.style.cursor = "grab";
   };
 
-  const ArrowButton = ({ dir }: { dir: "left" | "right" }) => (
-    <button
-      onClick={() => scroll(dir)}
-      aria-label={dir === "left" ? t("prev") : t("next")}
-      className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
-      style={{ [dir === "left" ? "left" : "right"]: "-20px" }}
-    >
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d={dir === "left" ? "M15 19l-7-7 7-7" : "M9 5l7 7-7 7"}
-        />
-      </svg>
-    </button>
-  );
-
   return (
     <div className="relative">
-      <ArrowButton dir="left" />
-      <ArrowButton dir="right" />
+      <button
+        onClick={() => scroll("left")}
+        aria-label={t("prev")}
+        className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
+        style={{ left: "-20px" }}
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        aria-label={t("next")}
+        className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
+        style={{ right: "-20px" }}
+      >
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
 
       <div
         ref={sliderRef}
@@ -195,7 +119,7 @@ function TeamSlider() {
   );
 }
 
-export default function TeamSection() {
+export default function TeamSection({ teamMembers }: { teamMembers: TeamMember[] }) {
   const t = useTranslations("about.team");
 
   return (
@@ -215,7 +139,7 @@ export default function TeamSection() {
           </p>
         </div>
 
-        <TeamSlider />
+        <TeamSlider team={teamMembers} />
       </div>
     </section>
   );
