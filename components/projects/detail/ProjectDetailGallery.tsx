@@ -1,6 +1,8 @@
+import { getTranslations } from "next-intl/server";
 import type { ProjectDetail } from "@/lib/sanity/project";
 
-export default function ProjectDetailGallery({ project }: { project: ProjectDetail }) {
+export default async function ProjectDetailGallery({ project }: { project: ProjectDetail }) {
+  const t = await getTranslations("projects.detail");
   const [featured, ...rest] = project.images;
 
   return (
@@ -16,7 +18,7 @@ export default function ProjectDetailGallery({ project }: { project: ProjectDeta
               <div key={img} className="rounded-xl overflow-hidden aspect-square">
                 <img
                   src={img}
-                  alt={`${project.title} ${i + 2}`}
+                  alt={t("galleryImageAlt", { title: project.title, index: i + 2 })}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>

@@ -1,7 +1,11 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import type { ProjectDetail } from "@/lib/sanity/project";
 
-export default function ProjectDetailHeader({ project }: { project: ProjectDetail }) {
+export default async function ProjectDetailHeader({ project }: { project: ProjectDetail }) {
+  const t = await getTranslations("projects.detail");
+  const tStatus = await getTranslations("projects.status");
+
   return (
     <section className="bg-white border-b border-slate-100 py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -17,7 +21,7 @@ export default function ProjectDetailHeader({ project }: { project: ProjectDetai
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          All Projects
+          {t("allProjects")}
         </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-end">
@@ -33,7 +37,7 @@ export default function ProjectDetailHeader({ project }: { project: ProjectDetai
                     : "bg-green-50 text-green-600 border border-green-100"
                 }`}
               >
-                {project.status}
+                {tStatus(project.status)}
               </span>
             </div>
 
@@ -65,7 +69,7 @@ export default function ProjectDetailHeader({ project }: { project: ProjectDetai
             {project.services.length > 0 ? (
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">
-                  Services Provided
+                  {t("servicesProvided")}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.services.map((service) => (

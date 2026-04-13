@@ -189,6 +189,12 @@
       "description": "Ready to see similar results for your property? Contact us to discuss how DNT Group can help transform your hotel's performance.",
       "contactBtn": "Get in Touch",
       "servicesBtn": "Our Services"
+    },
+    "detail": {
+      "allProjects": "All Projects",
+      "servicesProvided": "Services Provided",
+      "aboutTheProject": "About the Project",
+      "galleryImageAlt": "{title} — image {index}"
     }
   },
   "contact": {
