@@ -1,19 +1,12 @@
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getServices } from "@/lib/sanity/services";
 
-const serviceKeys = [
-  "operations",
-  "revenue",
-  "marketing",
-  "financial",
-  "hr",
-  "quality",
-] as const;
-
-const serviceNumbers = ["01", "02", "03", "04", "05", "06"];
-
-export default function ServicesPreview() {
-  const t = useTranslations("home.services");
+export default async function ServicesPreview() {
+  const locale = await getLocale();
+  const services = await getServices(locale);
+  const previewServices = services.filter((service) => service.showInPreview).slice(0, 6);
+  const t = await getTranslations("home.services");
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -27,21 +20,21 @@ export default function ServicesPreview() {
           </h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {serviceKeys.map((key, index) => (
+          {previewServices.map((service) => (
             <div
-              key={key}
+              key={service.id}
               className="group relative bg-white border border-slate-200 rounded-xl p-8 hover:border-secondary hover:shadow-lg transition-all duration-300 cursor-default overflow-hidden"
             >
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
               <span className="block text-xs font-mono text-slate-300 tracking-widest mb-6">
-                {serviceNumbers[index]}
+                {service.number}
               </span>
               <h3 className="text-base font-semibold text-slate-800 mb-3 group-hover:text-secondary transition-colors duration-300">
-                {t(`items.${key}.title`)}
+                {service.title}
               </h3>
               <div className="w-8 h-px bg-slate-200 mb-4 group-hover:w-14 group-hover:bg-secondary transition-all duration-300" />
               <p className="text-sm text-slate-500 leading-relaxed">
-                {t(`items.${key}.description`)}
+                {service.summary}
               </p>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Service } from "@/app/[locale]/services/data";
+import type { Service } from "@/lib/sanity/services";
 
 interface ServiceCardProps {
   service: Service;

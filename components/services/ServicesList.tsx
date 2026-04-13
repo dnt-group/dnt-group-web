@@ -1,4 +1,4 @@
-import { Service } from "@/app/[locale]/services/data";
+import type { Service } from "@/lib/sanity/services";
 import ServiceCard from "./ServiceCard";
 
 interface ServicesListProps {
@@ -9,7 +9,7 @@ export default function ServicesList({ services }: ServicesListProps) {
   return (
     <div className="divide-y divide-slate-100">
       {services.map((service) => (
-        <ServiceCard key={service.number} service={service} />
+        <ServiceCard key={service.id} service={service} />
       ))}
     </div>
   );
