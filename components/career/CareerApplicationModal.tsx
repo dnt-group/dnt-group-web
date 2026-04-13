@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type { Position } from "@/lib/sanity/career";
 
 type CareerApplicationModalProps = {
@@ -19,6 +20,8 @@ export default function CareerApplicationModal({
   onClose,
   onSubmit,
 }: CareerApplicationModalProps) {
+  const t = useTranslations("career.modal");
+
   if (!selectedPosition && !isGeneral) return null;
 
   return (
@@ -33,15 +36,17 @@ export default function CareerApplicationModal({
           <div className="flex items-start justify-between mb-6">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-tertiary mb-1">
-                {isGeneral ? "General Application" : "Apply for Position"}
+                {isGeneral ? t("generalTitle") : t("applyForPosition")}
               </p>
               <h3 className="text-xl font-bold text-slate-900">
-                {isGeneral ? "Send Your CV" : selectedPosition?.title}
+                {isGeneral ? t("sendCv") : selectedPosition?.title}
               </h3>
             </div>
             <button
+              type="button"
               onClick={onClose}
               className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors duration-200 shrink-0"
+              aria-label={t("close")}
             >
               <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -56,16 +61,14 @@ export default function CareerApplicationModal({
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">Application Sent</h3>
-              <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
-                Thank you for your interest in DNT Group. We&apos;ll review your application and be in touch within
-                a few business days.
-              </p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{t("successTitle")}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed max-w-xs">{t("successMessage")}</p>
               <button
+                type="button"
                 onClick={onClose}
                 className="mt-8 text-xs font-semibold uppercase tracking-wider text-slate-400 hover:text-primary transition-colors"
               >
-                Close
+                {t("close")}
               </button>
             </div>
           ) : (
@@ -73,23 +76,23 @@ export default function CareerApplicationModal({
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                    First Name <span className="text-tertiary">*</span>
+                    {t("firstName")} <span className="text-tertiary">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="John"
+                    placeholder={t("firstNamePlaceholder")}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                    Last Name <span className="text-tertiary">*</span>
+                    {t("lastName")} <span className="text-tertiary">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Doe"
+                    placeholder={t("lastNamePlaceholder")}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
                   />
                 </div>
@@ -97,47 +100,47 @@ export default function CareerApplicationModal({
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                  Email Address <span className="text-tertiary">*</span>
+                  {t("email")} <span className="text-tertiary">*</span>
                 </label>
                 <input
                   type="email"
                   required
-                  placeholder="john@example.com"
+                  placeholder={t("emailPlaceholder")}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                  Phone Number
+                  {t("phone")}
                 </label>
                 <input
                   type="tel"
-                  placeholder="+995 555 000 000"
+                  placeholder={t("phonePlaceholder")}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                  Cover Letter / Message
+                  {t("coverLetter")}
                 </label>
                 <textarea
                   rows={4}
-                  placeholder="Tell us about yourself and why you'd like to join DNT Group..."
+                  placeholder={t("coverLetterPlaceholder")}
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200 resize-none"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
-                  CV / Resume <span className="text-tertiary">*</span>
+                  {t("cv")} <span className="text-tertiary">*</span>
                 </label>
                 <div className="w-full px-4 py-4 rounded-xl border border-dashed border-slate-200 bg-slate-50 text-center cursor-pointer hover:border-secondary hover:bg-secondary/5 transition-colors duration-200">
                   <svg className="w-5 h-5 text-slate-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                   </svg>
-                  <p className="text-xs text-slate-400">Upload PDF or Word document</p>
+                  <p className="text-xs text-slate-400">{t("cvUpload")}</p>
                   <input type="file" accept=".pdf,.doc,.docx" className="hidden" />
                 </div>
               </div>
@@ -149,14 +152,14 @@ export default function CareerApplicationModal({
               >
                 {loading ? (
                   <>
-                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden>
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                     </svg>
-                    Submitting...
+                    {t("submitting")}
                   </>
                 ) : (
-                  "Submit Application"
+                  t("submit")
                 )}
               </button>
             </form>

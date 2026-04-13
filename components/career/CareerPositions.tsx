@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import type { Position } from "@/lib/sanity/career";
 
 type CareerPositionsProps = {
@@ -6,16 +9,21 @@ type CareerPositionsProps = {
 };
 
 export default function CareerPositions({ positions, onApply }: CareerPositionsProps) {
+  const t = useTranslations("career.positions");
+
+  const typeLabel = (type: Position["type"]) =>
+    type === "Full-time" ? t("typeFullTime") : t("typeProjectBased");
+
   return (
     <section className="bg-slate-50 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400 mb-2 block">
-              Open Positions
+              {t("title")}
             </span>
             <h2 className="text-2xl lg:text-3xl font-bold text-slate-900">
-              {positions.length} Roles Available
+              {t("rolesAvailable", { count: positions.length })}
             </h2>
           </div>
         </div>
@@ -33,7 +41,7 @@ export default function CareerPositions({ positions, onApply }: CareerPositionsP
                           : "bg-blue-50 text-blue-600 border border-blue-100"
                       }`}
                     >
-                      {position.type}
+                      {typeLabel(position.type)}
                     </span>
                   </div>
 
@@ -66,7 +74,7 @@ export default function CareerPositions({ positions, onApply }: CareerPositionsP
                     onClick={() => onApply(position)}
                     className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-6 py-3 rounded-full transition-opacity duration-200 uppercase tracking-wider"
                   >
-                    Apply Now
+                    {t("applyNow")}
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

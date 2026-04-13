@@ -232,6 +232,9 @@
       "title": "Open Positions",
       "roles": "Roles",
       "role": "Role",
+      "rolesAvailable": "{count, plural, one {# Role Available} other {# Roles Available}}",
+      "typeFullTime": "Full-time",
+      "typeProjectBased": "Project-based",
       "applyNow": "Apply Now"
     },
     "filters": {
@@ -239,12 +242,14 @@
     },
     "general": {
       "title": "Don't See Your Role?",
-      "description": "We're always looking for talented individuals to join our team. Send us your CV and we'll keep you in mind for future opportunities.",
+      "heading": "Send us a general application",
+      "description": "We're always interested in meeting talented hospitality professionals. Send us your CV and tell us how you'd contribute to the DNT Group team.",
       "button": "General Application"
     },
     "modal": {
       "generalTitle": "General Application",
       "applyFor": "Apply for",
+      "applyForPosition": "Apply for Position",
       "sendCv": "Send Your CV",
       "firstName": "First Name",
       "firstNamePlaceholder": "John",
@@ -255,13 +260,13 @@
       "phone": "Phone Number",
       "phonePlaceholder": "+995 555 000 000",
       "coverLetter": "Cover Letter / Message",
-      "coverLetterPlaceholder": "Tell us about yourself and why you'd be a great fit...",
+      "coverLetterPlaceholder": "Tell us about yourself and why you'd like to join DNT Group...",
       "cv": "CV / Resume",
       "cvUpload": "Upload PDF or Word document",
       "submitting": "Submitting...",
       "submit": "Submit Application",
       "successTitle": "Application Sent",
-      "successMessage": "Thank you for your application. Our HR team will review it and contact you if there's a suitable match.",
+      "successMessage": "Thank you for your interest in DNT Group. We'll review your application and be in touch within a few business days.",
       "close": "Close"
     }
   },

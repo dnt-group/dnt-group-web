@@ -5,7 +5,7 @@ export default function ResultsCTA() {
   const t = useTranslations("about.results");
 
   return (
-    <section className="bg-primary/5 py-20 lg:py-28">
+    <section className="bg-warm/5 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
