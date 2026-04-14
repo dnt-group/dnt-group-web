@@ -282,18 +282,11 @@
       "title": "Hospitality Insights & Industry Thinking",
       "description": "Perspectives on hotel management, industry trends, and operational excellence from our team of hospitality experts."
     },
-    "featured": "Featured",
     "read": "Read",
     "backToBlogs": "Back to Blogs",
     "author": "DNT Group",
-    "minRead": "min read",
+    "minRead": "{minutes} min read",
     "contents": "Contents",
-    "talkToTeam": "Talk to Our Team",
-    "relatedArticles": "Related Articles"
-  },
-  "common": {
-    "address": "123 Hospitality Ave, Tbilisi, Georgia",
-    "phone": "+995 555 000 000",
-    "email": "info@dntgroup.com"
+    "talkToTeam": "Talk to Our Team"
   }
 }

@@ -1,10 +1,12 @@
 import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getBlogBySlug } from "@/lib/sanity/blog";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const locale = await getLocale();
+  const t = await getTranslations("blogs");
   const { slug } = await params;
   const post = await getBlogBySlug(locale, slug);
   if (!post) notFound();
@@ -24,7 +26,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <svg className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Back to Blogs
+            {t("backToBlogs")}
           </Link>
 
           <div className="max-w-3xl">
@@ -46,9 +48,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="flex items-center gap-4 text-xs text-slate-400">
               <span>{post.date}</span>
               <span className="w-1 h-1 rounded-full bg-slate-300" />
-              <span>DNT Group</span>
+              <span>{t("author")}</span>
               <span className="w-1 h-1 rounded-full bg-slate-300" />
-              <span>{post.sections.length * 2} min read</span>
+              <span>{t("minRead", { minutes: post.sections.length * 2 })}</span>
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <aside className="hidden lg:block lg:col-span-3">
               <div className="sticky top-28">
                 <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-4">
-                  Contents
+                  {t("contents")}
                 </p>
                 <ul className="space-y-2">
                   {post.sections.map((section, i) => (
@@ -134,7 +136,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   href="/contact"
                   className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity duration-200 uppercase tracking-wider shrink-0"
                 >
-                  Talk to Our Team
+                  {t("talkToTeam")}
                 </Link>
               </div>
 
