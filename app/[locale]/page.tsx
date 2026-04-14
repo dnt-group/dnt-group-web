@@ -6,14 +6,18 @@ import Statistics from "@/components/about/Statistics";
 import ServicesPreview from "@/components/services/ServicesPreview";
 import { getLocale } from "next-intl/server";
 import { getAboutPageData } from "@/lib/sanity/about";
+import { getHomeHeroContent } from "@/lib/sanity/homeHero";
 
 export default async function Home() {
   const locale = await getLocale();
-  const { stats } = await getAboutPageData(locale);
+  const [{ stats }, heroContent] = await Promise.all([
+    getAboutPageData(locale),
+    getHomeHeroContent(locale),
+  ]);
 
   return (
     <>
-      <HeroSection />
+      <HeroSection content={heroContent} />
       <AboutPreview />
       <Statistics statValues={stats} />
       <ServicesPreview />

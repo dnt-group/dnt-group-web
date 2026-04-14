@@ -1,7 +1,12 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import type { HomeHeroContent } from "@/lib/sanity/homeHero";
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  content: HomeHeroContent;
+};
+
+export default function HeroSection({ content }: HeroSectionProps) {
   const t = useTranslations("home.hero");
 
   return (
@@ -15,7 +20,7 @@ export default function HeroSection() {
           className="w-full h-full object-cover"
         >
           <source
-            src="https://assets.mixkit.co/videos/1170/1170-720.mp4"
+            src={content.backgroundVideoUrl}
             type="video/mp4"
           />
         </video>
@@ -28,10 +33,10 @@ export default function HeroSection() {
             {t("subtitle")}
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-white leading-tight mb-6">
-            {t("title")}
+            {content.title}
           </h1>
           <p className="text-base md:text-lg font-body text-white/80 leading-relaxed mb-8 max-w-lg">
-            {t("description")}
+            {content.description}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
