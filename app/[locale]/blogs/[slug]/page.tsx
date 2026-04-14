@@ -1,16 +1,16 @@
 import { Link } from "@/i18n/navigation";
+import { getLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { blogs } from "../page";
+import { getBlogBySlug } from "@/lib/sanity/blog";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const locale = await getLocale();
   const { slug } = await params;
-  const post = blogs.find((b) => b.slug === slug);
+  const post = await getBlogBySlug(locale, slug);
   if (!post) notFound();
 
-  const related = blogs.filter((b) => b.slug !== post.slug).slice(0, 3);
-
   return (
-    <main>
+    <>
 
       {/* ── HERO ── */}
       <section className="bg-white border-b border-slate-100 py-16 lg:py-20">
@@ -142,36 +142,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
-
-      {/* ── RELATED POSTS ── */}
-      <section className="bg-slate-50 py-16 lg:py-20 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-lg font-bold text-slate-900 mb-8">Related Articles</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {related.map((p) => (
-              <Link key={p.slug} href={`/blogs/${p.slug}`} className="group block bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-md hover:border-slate-300 transition-all duration-300">
-                <div className="aspect-[16/9] overflow-hidden">
-                  <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <div className="p-5">
-                  <span className="text-xs text-slate-400 block mb-2">{p.date}</span>
-                  <h3 className="text-sm font-bold text-slate-900 leading-snug group-hover:text-secondary transition-colors duration-200 mb-3">
-                    {p.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {p.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-semibold text-secondary border border-secondary/30 bg-secondary/5 px-2 py-0.5 rounded-full">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    </main>
+    </>
   );
 }
