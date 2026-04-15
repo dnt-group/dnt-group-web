@@ -1,7 +1,33 @@
 {
   "metadata": {
     "title": "DNT Group - Hotel Management Company",
-    "description": "DNT Group is a professional hotel management company specializing in the successful operation and development of small, medium, and large hospitality projects."
+    "description": "DNT Group is a professional hotel management company specializing in the successful operation and development of small, medium, and large hospitality projects.",
+    "keywords": "hotel management, hospitality consulting, hotel operations, revenue management, hotel development, DNT Group, Georgia hotels, hotel consulting management company, hotel management company,",
+    "companyName": "DNT Group",
+    "about": {
+      "title": "About Us",
+      "description": "Learn about DNT Group's expertise in hotel management, our team of hospitality professionals, and our commitment to operational excellence."
+    },
+    "services": {
+      "title": "Our Services",
+      "description": "Comprehensive hotel management services including operations, revenue management, sales & marketing, financial management, and quality assurance."
+    },
+    "projects": {
+      "title": "Our Projects",
+      "description": "Explore DNT Group's portfolio of successfully managed hotels and resorts across the region."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with DNT Group for hotel management services, consulting, or partnership opportunities."
+    },
+    "career": {
+      "title": "Careers",
+      "description": "Join the DNT Group team. Explore career opportunities in hotel management and hospitality."
+    },
+    "blogs": {
+      "title": "Blog",
+      "description": "Hospitality insights, industry trends, and expert perspectives on hotel management from DNT Group."
+    }
   },
   "nav": {
     "home": "Home",

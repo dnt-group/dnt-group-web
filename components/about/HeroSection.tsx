@@ -13,17 +13,14 @@ export default function HeroSection({ content }: HeroSectionProps) {
     <section className="relative h-[95vh] min-h-[600px] flex items-center">
       <div className="absolute inset-0">
         <video
+          key={content.backgroundVideoUrl}
+          src={content.backgroundVideoUrl}
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
-        >
-          <source
-            src={content.backgroundVideoUrl}
-            type="video/mp4"
-          />
-        </video>
+        />
         <div className="absolute inset-0 bg-primary/60" />
       </div>
 
