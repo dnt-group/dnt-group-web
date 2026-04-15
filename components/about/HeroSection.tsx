@@ -15,6 +15,8 @@ export default function HeroSection({ content }: HeroSectionProps) {
         <video
           key={content.backgroundVideoUrl}
           src={content.backgroundVideoUrl}
+          poster={content.backgroundPosterImageUrl}
+          preload="auto"
           autoPlay
           muted
           loop
