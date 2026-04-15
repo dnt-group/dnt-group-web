@@ -13,11 +13,12 @@ const fallbackHomeHero: HomeHeroContent = {
 };
 
 const homeHeroQuery = `
-  *[
-    _type == "homeHero" &&
-    (!defined(language) || language == $locale)
-  ][0]{
-    backgroundVideoUrl,
+  coalesce(
+    *[_type == "homeHero" && language == $locale][0],
+    *[_type == "homeHero" && !defined(language)][0],
+    *[_type == "homeHero"][0]
+  ){
+    "backgroundVideoUrl": coalesce(backgroundVideo.asset->url, backgroundVideoUrl),
     title,
     description
   }
@@ -28,14 +29,13 @@ type HomeHeroDocument = Partial<HomeHeroContent> | null;
 export async function getHomeHeroContent(locale: string): Promise<HomeHeroContent> {
   if (!sanityClient) return fallbackHomeHero;
 
-  const doc = await sanityClient.fetch<HomeHeroDocument>(homeHeroQuery, { locale });
-  if (!doc?.backgroundVideoUrl || !doc?.title || !doc?.description) {
-    return fallbackHomeHero;
-  }
+  const doc = await sanityClient
+    .withConfig({ useCdn: false })
+    .fetch<HomeHeroDocument>(homeHeroQuery, { locale });
 
   return {
-    backgroundVideoUrl: doc.backgroundVideoUrl,
-    title: doc.title,
-    description: doc.description,
+    backgroundVideoUrl: doc?.backgroundVideoUrl ?? fallbackHomeHero.backgroundVideoUrl,
+    title: doc?.title ?? fallbackHomeHero.title,
+    description: doc?.description ?? fallbackHomeHero.description,
   };
 }
