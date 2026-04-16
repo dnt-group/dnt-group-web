@@ -28,8 +28,10 @@ function TeamSlider({ team }: { team: TeamMember[] }) {
     return 1;
   };
 
+  const needsSlider = team.length > 3;
+
   const onMouseDown = (e: React.MouseEvent) => {
-    if (!sliderRef.current) return;
+    if (!sliderRef.current || !needsSlider) return;
     setIsDragging(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
     setScrollLeft(sliderRef.current.scrollLeft);
@@ -46,44 +48,48 @@ function TeamSlider({ team }: { team: TeamMember[] }) {
 
   const onMouseUp = () => {
     setIsDragging(false);
-    if (sliderRef.current) sliderRef.current.style.cursor = "grab";
+    if (sliderRef.current) sliderRef.current.style.cursor = needsSlider ? "grab" : "default";
   };
 
   return (
     <div className="relative">
-      <button
-        onClick={() => scroll("left")}
-        aria-label={t("prev")}
-        className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
-        style={{ left: "-20px" }}
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-      <button
-        onClick={() => scroll("right")}
-        aria-label={t("next")}
-        className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
-        style={{ right: "-20px" }}
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+      {needsSlider && (
+        <>
+          <button
+            onClick={() => scroll("left")}
+            aria-label={t("prev")}
+            className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
+            style={{ left: "-20px" }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            aria-label={t("next")}
+            className="absolute top-1/3 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-slate-400 hover:border-secondary hover:text-secondary transition-colors duration-200"
+            style={{ right: "-20px" }}
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </>
+      )}
 
       <div
         ref={sliderRef}
-        className="flex gap-6 overflow-x-auto scroll-smooth pb-4 select-none mx-4"
+        className={`flex gap-6 overflow-x-auto scroll-smooth pb-4 mx-4 ${needsSlider ? "select-none" : ""}`}
         style={{
-          cursor: "grab",
+          cursor: needsSlider ? "grab" : "default",
           scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
+        onMouseDown={needsSlider ? onMouseDown : undefined}
+        onMouseMove={needsSlider ? onMouseMove : undefined}
+        onMouseUp={needsSlider ? onMouseUp : undefined}
+        onMouseLeave={needsSlider ? onMouseUp : undefined}
       >
         {team.map((member) => (
           <div

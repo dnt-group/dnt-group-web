@@ -39,7 +39,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) setMenuOpen(false);
+      if (window.innerWidth >= 1024) setMenuOpen(false);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -67,7 +67,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -82,7 +82,7 @@ export default function Header() {
           {/* Right side — lang switcher + burger */}
           <div className="flex items-center gap-4">
             {/* Pill switcher */}
-            <div className="hidden relative md:flex items-center bg-slate-100 rounded-full p-0.5">
+            <div className="hidden relative lg:flex items-center bg-slate-100 rounded-full p-0.5">
               {/* Sliding pill */}
               <div
                 className="absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] rounded-full bg-primary transition-transform duration-200 ease-in-out"
@@ -110,7 +110,7 @@ export default function Header() {
 
             {/* Burger — mobile only */}
             <button
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
+              className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5 focus:outline-none"
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label={tHeader("toggleMenu")}
               aria-expanded={menuOpen}
@@ -137,7 +137,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           menuOpen ? "max-h-96 border-t border-gray-100" : "max-h-0"
         }`}
       >

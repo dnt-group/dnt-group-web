@@ -27,12 +27,12 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
   return (
     <section className="bg-slate-50 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center gap-2 mb-12">
+        <div className="flex flex-wrap items-center gap-2 mb-12">
           {filters.map((f) => (
             <button
               key={f.value}
               onClick={() => setActive(f.value)}
-              className={`px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
+              className={`px-4 sm:px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 whitespace-nowrap ${
                 active === f.value
                   ? "bg-primary text-white"
                   : "bg-white border border-slate-200 text-slate-500 hover:border-primary hover:text-primary"
@@ -40,7 +40,7 @@ export default function ProjectsGrid({ projects }: { projects: Project[] }) {
             >
               {t(f.labelKey)}
               <span
-                className={`ml-2 text-xs ${
+                className={`ml-1.5 sm:ml-2 text-xs ${
                   active === f.value ? "text-white/60" : "text-slate-300"
                 }`}
               >
