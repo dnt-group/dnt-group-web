@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import { resend, isResendConfigured } from "@/lib/resend/client";
 import { ContactEmail } from "@/lib/resend/templates/ContactEmail";
+import {
+  isRateLimited,
+  isValidEmail,
+  isValidPhone,
+  sanitize,
+  getClientIp,
+  isValidOrigin,
+} from "@/lib/api/validation";
 
 type ContactPayload = {
   fullName: string;
@@ -9,85 +17,10 @@ type ContactPayload = {
   message: string;
   locale?: string;
   pageUrl?: string;
-  website?: string;
+  honeypot?: string;
 };
 
-const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 5;
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const record = rateLimitMap.get(ip);
-
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW_MS });
-    return false;
-  }
-
-  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
-    return true;
-  }
-
-  record.count++;
-  return false;
-}
-
-function isValidEmail(email: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function isValidPhone(phone: string): boolean {
-  if (!phone) return true;
-  return /^[+]?[\d\s\-().]{7,20}$/.test(phone);
-}
-
-function sanitize(value: string): string {
-  return value.replace(/[<>]/g, "").trim();
-}
-
-function getClientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0].trim();
-  }
-  return request.headers.get("x-real-ip") || "unknown";
-}
-
-function isValidOrigin(request: Request): boolean {
-  const origin = request.headers.get("origin");
-  const referer = request.headers.get("referer");
-  const host = request.headers.get("host");
-
-  if (!origin && !referer) {
-    return false;
-  }
-
-  const allowedHost = host || process.env.NEXT_PUBLIC_SITE_URL;
-  if (!allowedHost) {
-    return true;
-  }
-
-  if (origin) {
-    try {
-      const originUrl = new URL(origin);
-      if (originUrl.host === allowedHost) return true;
-    } catch {
-      return false;
-    }
-  }
-
-  if (referer) {
-    try {
-      const refererUrl = new URL(referer);
-      if (refererUrl.host === allowedHost) return true;
-    } catch {
-      return false;
-    }
-  }
-
-  return false;
-}
 
 export async function POST(request: Request) {
   const toEmail = process.env.CONTACT_TO_EMAIL;
@@ -113,7 +46,7 @@ export async function POST(request: Request) {
   }
 
   const clientIp = getClientIp(request);
-  if (isRateLimited(clientIp)) {
+  if (isRateLimited(clientIp, MAX_REQUESTS_PER_WINDOW)) {
     return NextResponse.json(
       { error: "Too many requests. Please try again later." },
       { status: 429 }
@@ -127,7 +60,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
 
-  if (payload.website) {
+  if (payload.honeypot) {
     return NextResponse.json({ ok: true });
   }
 

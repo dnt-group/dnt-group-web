@@ -72,7 +72,7 @@ export default function CareerPositions({ positions, onApply }: CareerPositionsP
                 <div className="lg:col-span-4 flex lg:justify-end lg:items-start">
                   <button
                     onClick={() => onApply(position)}
-                    className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-6 py-3 rounded-full transition-opacity duration-200 uppercase tracking-wider"
+                    className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-6 py-3 rounded-full transition-opacity duration-200 uppercase tracking-wider cursor-pointer"
                   >
                     {t("applyNow")}
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

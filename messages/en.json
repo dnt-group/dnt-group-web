@@ -297,9 +297,11 @@
       "coverLetter": "Cover Letter / Message",
       "coverLetterPlaceholder": "Tell us about yourself and why you'd like to join DNT Group...",
       "cv": "CV / Resume",
-      "cvUpload": "Upload PDF or Word document",
+      "cvUpload": "Upload PDF or Word document (max 5MB)",
+      "cvRequired": "Please upload your CV/Resume.",
       "submitting": "Submitting...",
       "submit": "Submit Application",
+      "submitError": "Something went wrong. Please try again.",
       "successTitle": "Application Sent",
       "successMessage": "Thank you for your interest in DNT Group. We'll review your application and be in touch within a few business days.",
       "close": "Close"

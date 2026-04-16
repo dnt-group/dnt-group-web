@@ -22,7 +22,7 @@ export default function ContactForm() {
       message: String(formData.get("message") ?? ""),
       locale: document.documentElement.lang || "",
       pageUrl: window.location.href,
-      website: String(formData.get("website") ?? ""),
+      honeypot: String(formData.get("company_website_url_confirm") ?? ""),
     };
 
     setLoading(true);
@@ -101,14 +101,14 @@ export default function ContactForm() {
           </div>
         ) : null}
 
-        {/* Honeypot field - hidden from users, bots will fill it */}
+        {/* Honeypot - use obscure name to avoid autofill */}
         <input
           type="text"
-          name="website"
+          name="company_website_url_confirm"
           tabIndex={-1}
-          autoComplete="off"
+          autoComplete="new-password"
           aria-hidden="true"
-          className="absolute -left-[9999px] opacity-0 h-0 w-0"
+          style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, pointerEvents: "none" }}
         />
 
         <div>

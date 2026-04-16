@@ -21,7 +21,7 @@ export default function CareerGeneralApply({ onGeneralApply }: { onGeneralApply:
           <div className="flex lg:justify-end">
             <button
               onClick={onGeneralApply}
-              className="inline-flex items-center gap-2 bg-tertiary hover:opacity-90 text-white text-sm font-semibold px-8 py-4 rounded-full transition-opacity duration-200 uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-tertiary hover:opacity-90 text-white text-sm font-semibold px-8 py-4 rounded-full transition-opacity duration-200 uppercase tracking-wider cursor-pointer"
             >
               {t("button")}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
