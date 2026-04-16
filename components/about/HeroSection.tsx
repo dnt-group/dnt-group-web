@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import type { HomeHeroContent } from "@/lib/sanity/homeHero";
 
@@ -8,25 +9,35 @@ type HeroSectionProps = {
 
 export default function HeroSection({ content }: HeroSectionProps) {
   const t = useTranslations("home.hero");
+  const fallbackPosterUrl = "/hero-fallback.jpg";
 
   return (
     <section className="relative h-[95vh] min-h-[600px] flex items-center">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-0 bg-primary">
+        <Image
+          src={fallbackPosterUrl}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover z-0"
+        />
         <video
           key={content.backgroundVideoUrl}
           src={content.backgroundVideoUrl}
-          poster={content.backgroundPosterImageUrl}
+          poster={fallbackPosterUrl}
           preload="auto"
           autoPlay
           muted
           loop
           playsInline
-          className="w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-10"
         />
-        <div className="absolute inset-0 bg-primary/60" />
+        <div className="absolute inset-0 bg-primary/60 z-20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+      <div className="relative z-30 max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="max-w-2xl">
           <p className="text-sm font-body font-semibold uppercase tracking-[0.25em] text-tertiary mb-4">
             {t("subtitle")}

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import AboutImage from "@/public/about.jpg";
 
 export default function AboutPreview() {
   const t = useTranslations("home.about");
@@ -10,7 +11,7 @@ export default function AboutPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
             <img
-              src="https://media.base44.com/images/public/69ca726767f2d4ba825c17dd/6b14a9417_generated_fcc81c38.png"
+              src={AboutImage.src}
               alt={t("imageAlt")}
               className="w-full h-[400px] object-cover rounded-lg"
             />
