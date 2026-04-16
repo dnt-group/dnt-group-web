@@ -7,13 +7,51 @@ export default function ContactForm() {
   const t = useTranslations("contact.form");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    const form = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: String(formData.get("fullName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      locale: document.documentElement.lang || "",
+      pageUrl: window.location.href,
+      website: String(formData.get("website") ?? ""),
+    };
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        setError(t("submitError"));
+        return;
+      }
+
+      form.reset();
+      setSubmitted(true);
+    } catch {
+      setError(t("submitError"));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSendAnother = () => {
+    setSubmitted(false);
+    setError(null);
   };
 
   if (submitted) {
@@ -38,9 +76,16 @@ export default function ContactForm() {
           <h3 className="text-xl font-bold text-slate-900 mb-2">
             {t("successTitle")}
           </h3>
-          <p className="text-sm text-slate-500 leading-relaxed max-w-xs">
+          <p className="text-sm text-slate-500 leading-relaxed max-w-xs mb-6">
             {t("successMessage")}
           </p>
+          <button
+            type="button"
+            onClick={handleSendAnother}
+            className="text-sm font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer"
+          >
+            {t("sendAnother")}
+          </button>
         </div>
       </div>
     );
@@ -50,13 +95,32 @@ export default function ContactForm() {
     <div className="bg-white rounded-2xl border border-slate-200 p-8 lg:p-10">
       <h3 className="text-lg font-bold text-slate-900 mb-6">{t("title")}</h3>
       <form onSubmit={handleSubmit} className="space-y-5">
+        {error ? (
+          <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+            {error}
+          </div>
+        ) : null}
+
+        {/* Honeypot field - hidden from users, bots will fill it */}
+        <input
+          type="text"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          className="absolute -left-[9999px] opacity-0 h-0 w-0"
+        />
+
         <div>
           <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">
             {t("fullName")} <span className="text-tertiary">*</span>
           </label>
           <input
+            name="fullName"
             type="text"
             required
+            minLength={2}
+            maxLength={120}
             placeholder={t("fullNamePlaceholder")}
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
           />
@@ -66,8 +130,10 @@ export default function ContactForm() {
             {t("email")} <span className="text-tertiary">*</span>
           </label>
           <input
+            name="email"
             type="email"
             required
+            maxLength={254}
             placeholder={t("emailPlaceholder")}
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
           />
@@ -77,7 +143,11 @@ export default function ContactForm() {
             {t("phone")}
           </label>
           <input
+            name="phone"
             type="tel"
+            maxLength={20}
+            pattern="[+]?[\d\s\-().]{7,20}"
+            title={t("phonePattern")}
             placeholder={t("phonePlaceholder")}
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200"
           />
@@ -87,8 +157,11 @@ export default function ContactForm() {
             {t("message")} <span className="text-tertiary">*</span>
           </label>
           <textarea
+            name="message"
             required
             rows={5}
+            minLength={10}
+            maxLength={3000}
             placeholder={t("messagePlaceholder")}
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 text-sm text-slate-800 placeholder-slate-300 focus:outline-none focus:border-secondary focus:bg-white transition-colors duration-200 resize-none"
           />
@@ -96,7 +169,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-primary hover:opacity-90 disabled:opacity-60 text-white text-sm font-semibold uppercase tracking-wider py-4 rounded-xl transition-opacity duration-200 flex items-center justify-center gap-2"
+          className="w-full bg-primary hover:opacity-90 disabled:opacity-60 text-white text-sm font-semibold uppercase tracking-wider py-4 rounded-xl transition-opacity duration-200 flex items-center justify-center gap-2 cursor-pointer"
         >
           {loading ? (
             <>

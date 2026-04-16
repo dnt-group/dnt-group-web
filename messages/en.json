@@ -248,8 +248,11 @@
       "messagePlaceholder": "Tell us about your property and how we can help...",
       "sending": "Sending...",
       "submit": "Send Message",
+      "submitError": "Something went wrong. Please try again.",
+      "phonePattern": "Enter a valid phone number (digits, spaces, dashes, parentheses)",
       "successTitle": "Message Sent",
-      "successMessage": "Thank you for reaching out. Our team will review your message and get back to you within 24 hours."
+      "successMessage": "Thank you for reaching out. Our team will review your message and get back to you within 24 hours.",
+      "sendAnother": "Send another message"
     },
     "map": {
       "openInMaps": "Open in Maps"

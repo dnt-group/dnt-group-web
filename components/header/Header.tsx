@@ -63,6 +63,8 @@ export default function Header() {
               src={logo}
               alt={tHeader("logoAlt")}
               className="h-6 sm:h-8 md:h-10 w-auto"
+              loading="eager"
+              priority
             />
           </Link>
 
