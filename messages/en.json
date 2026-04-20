@@ -61,11 +61,11 @@
       "contactBtn": "Get in Touch"
     },
     "about": {
-      "imageAlt": "DNT Group office",
+      "imageAlt": "DNT Group",
       "subtitle": "About DNT Group",
       "title": "A Trusted Partner in Hospitality Management",
-      "description1": "For over a decade, DNT Group has been at the forefront of hotel management, helping properties across the region achieve operational excellence and sustainable growth.",
-      "description2": "Our team of seasoned hospitality professionals brings deep industry knowledge and a results-driven approach to every property we manage.",
+      "description1": "DNT Group is a leading management company in the hospitality sector, whose core mission is to maximize the potential of every hotel property.",
+      "description2": "Our extensive industry experience and unwavering commitment to operational excellence allow us to achieve superior results in partnership with hotel owners.",
       "learnMore": "Learn More"
     },
     "statistics": {
@@ -124,56 +124,56 @@
     },
     "cta": {
       "title": "Ready to Transform Your Property?",
-      "description": "Partner with DNT Group and discover how our expert hotel management services can elevate your property's performance and guest satisfaction.",
-      "button": "Contact Us Today"
+      "description": "Become a partner of DNT Group and start your success story with us. ",
+      "button": "Contact Us"
     }
   },
   "about": {
     "hero": {
       "subtitle": "About Us",
       "title": "Driving Excellence in Hospitality Management",
-      "description1": "DNT Group is a leading hotel management company dedicated to maximizing the potential of hospitality properties. With deep industry expertise and a commitment to operational excellence, we partner with hotel owners to deliver exceptional results.",
-      "description2": "Our approach combines proven management methodologies with innovative strategies, ensuring each property we manage achieves optimal performance in today's competitive hospitality landscape.",
-      "description3": "From boutique hotels to large resort properties, we bring the same dedication to quality, efficiency, and guest satisfaction that has made us a trusted name in hospitality management.",
-      "description4": "We believe in building lasting partnerships based on transparency, performance, and mutual success."
+      "description1": "DNT Group is a leading management company in the hospitality sector, whose core mission is to maximize the potential of every hotel property. Our extensive industry experience and unwavering commitment to operational excellence allow us to achieve superior results in partnership with hotel owners.",
+      "description2": "Our approach is a synthesis of proven management methodologies and innovative strategies. This ensures that every property we manage remains competitive and achieves optimal profitability in today's dynamic market.",
+      "description3": "From boutique hotels to large-scale resorts, we implement the same high standards of quality, efficiency, and guest-oriented service, establishing ourselves as a trusted name in hotel management.",
+      "description4": "Our business philosophy is built on creating long-term partnerships based on transparency, tangible results, and mutual success."
     },
     "purpose": {
       "title": "Our Purpose",
-      "description": "To elevate hospitality standards by providing exceptional management services that create memorable experiences for guests while delivering sustainable value for property owners.",
+      "description": "DNT Group is one of the leading employers, known for its exceptional corporate culture and for offering a wide range of benefits to its employees.",
       "missionTitle": "Our Mission",
-      "missionDescription": "To be the preferred hotel management partner in the region, known for operational excellence, innovative solutions, and measurable results that exceed expectations."
+      "missionDescription": "To transform hospitality properties into high-tech, efficient business entities. By integrating professional management verticals and innovative methodologies, we create an environment where operational excellence and personalized service converge. This synergy ensures the stable growth of asset capitalization and a high index of customer loyalty."
     },
     "values": {
-      "excellence": {
-        "title": "Excellence",
-        "description": "We pursue the highest standards in everything we do, from guest services to operational efficiency."
+      "standards": {
+        "title": "Standards",
+        "description": "Guest-centric excellence – High standards of service across everything from boutique hotels to large-scale resorts."
       },
-      "integrity": {
-        "title": "Integrity",
-        "description": "We build relationships on trust, transparency, and honest communication with all stakeholders."
+      "operationalExcellence": {
+        "title": "Operational Excellence",
+        "description": "Proven management methods and reliable hotel management practices that ensure optimal profitability."
       },
       "innovation": {
         "title": "Innovation",
-        "description": "We embrace new technologies and methodologies to stay ahead in the evolving hospitality industry."
+        "description": "Cutting-edge solutions and integrating modern strategies and high-tech solutions into the hospitality industry."
       },
       "partnership": {
         "title": "Partnership",
-        "description": "We view every client relationship as a true partnership, aligned toward shared success."
+        "description": "Long-term collaboration that builds success and mutual achievement."
       }
     },
     "team": {
       "subtitle": "Team",
-      "title": "Industry Experts Driving Hotel Success",
-      "description": "Our leadership team brings decades of combined experience in hospitality management, bringing expertise from international hotel brands and independent properties alike.",
+      "title": "Industry Experts For Your Success",
+      "description": "Our team consists of highly qualified and experienced professionals from the hotel industry. Each member of our company possesses deep knowledge of the hospitality sector and is distinguished by years of practical experience.",
       "prev": "Previous",
       "next": "Next"
     },
     "results": {
       "subtitle": "Our Results",
       "title": "Proven Track Record of Success",
-      "description": "Our portfolio of managed properties consistently outperforms market benchmarks. We measure our success through tangible results—increased revenue, improved guest satisfaction, and operational efficiency.",
+      "description": "Our portfolio includes a wide range of successful business cases, reflecting DNT Group's professional expertise and commitment to results.",
       "contactBtn": "Get in Touch",
-      "servicesBtn": "Our Services"
+      "projectsBtn": "Our Projects"
     }
   },
   "services": {
@@ -196,8 +196,8 @@
   "projects": {
     "hero": {
       "subtitle": "Our Portfolio",
-      "title": "Properties We've Transformed",
-      "description": "Explore our portfolio of successfully managed hotels and resorts across the region, each representing our commitment to operational excellence."
+      "title": "Successful Projects",
+      "description": "DNT Group's portfolio includes a wide range of successful business cases, reflecting our professional expertise and commitment to results."
     },
     "filters": {
       "all": "All Projects",
@@ -226,8 +226,8 @@
   "contact": {
     "hero": {
       "subtitle": "Contact Us",
-      "title": "Let's Discuss Your Property",
-      "description": "Whether you're looking for full management services or specific operational support, we're here to help. Reach out to start the conversation."
+      "title": "Become Our Partner",
+      "description": "DNT Group is always looking for new partnership opportunities. If you have an interesting proposal, share it with us! Our team will evaluate your idea and contact you as soon as possible."
     },
     "info": {
       "title": "Get in Touch",
@@ -261,13 +261,14 @@
   "career": {
     "hero": {
       "subtitle": "Careers",
-      "title": "Build Your Career in Hospitality"
+      "title": "Start Your Career in Hospitality Management"
     },
     "positions": {
       "title": "Open Positions",
       "roles": "Roles",
       "role": "Role",
       "rolesAvailable": "{count, plural, one {# Role Available} other {# Roles Available}}",
+      "noPositionsDescription": "No open positions available at the moment.",
       "typeFullTime": "Full-time",
       "typeProjectBased": "Project-based",
       "applyNow": "Apply Now"
@@ -277,25 +278,24 @@
     },
     "general": {
       "title": "Don't See Your Role?",
-      "heading": "Send us a general application",
-      "description": "We're always interested in meeting talented hospitality professionals. Send us your CV and tell us how you'd contribute to the DNT Group team.",
+      "heading": "If you can't find the role you're looking for, you are welcome to submit your resume.",
+      "description": "DNT Group is one of the leading employers, known for its exceptional corporate culture and for offering a wide range of benefits to its employees.",
       "button": "General Application"
     },
     "modal": {
       "generalTitle": "General Application",
       "applyFor": "Apply for",
       "applyForPosition": "Apply for Position",
-      "sendCv": "Send Your CV",
+      "sendCv": "Send Your CV / Resume",
       "firstName": "First Name",
       "firstNamePlaceholder": "John",
       "lastName": "Last Name",
       "lastNamePlaceholder": "Doe",
       "email": "Email Address",
-      "emailPlaceholder": "john@example.com",
+      "emailPlaceholder": "your@email.com",
       "phone": "Phone Number",
       "phonePlaceholder": "+995 555 000 000",
       "coverLetter": "Cover Letter / Message",
-      "coverLetterPlaceholder": "Tell us about yourself and why you'd like to join DNT Group...",
       "cv": "CV / Resume",
       "cvUpload": "Upload PDF or Word document (max 5MB)",
       "cvRequired": "Please upload your CV/Resume.",

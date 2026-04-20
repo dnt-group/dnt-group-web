@@ -27,10 +27,10 @@ export default function ResultsCTA() {
               {t("contactBtn")}
             </Link>
             <Link
-              href="/services"
+              href="/projects"
               className="inline-flex items-center justify-center gap-2 border border-primary/20 hover:border-primary/50 text-primary text-sm font-semibold px-8 py-4 rounded-full transition-colors duration-200 uppercase tracking-wider"
             >
-              {t("servicesBtn")}
+              {t("projectsBtn")}
             </Link>
           </div>
         </div>

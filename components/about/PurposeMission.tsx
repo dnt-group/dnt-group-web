@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-const valueKeys = ["excellence", "integrity", "innovation", "partnership"] as const;
+const valueKeys = ["standards", "operationalExcellence", "innovation", "partnership"] as const;
 
 export default function PurposeMission() {
   const t = useTranslations("about.purpose");

@@ -14,6 +14,20 @@ export default function CareerPositions({ positions, onApply }: CareerPositionsP
   const typeLabel = (type: Position["type"]) =>
     type === "Full-time" ? t("typeFullTime") : t("typeProjectBased");
 
+  if (positions.length === 0) {
+    return (
+      <section className="bg-slate-50 py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center">
+            <p className="text-slate-500 max-w-xl mx-auto">
+              {t("noPositionsDescription")}
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="bg-slate-50 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
