@@ -63,7 +63,7 @@
     "about": {
       "imageAlt": "DNT Group",
       "subtitle": "About DNT Group",
-      "title": "A Trusted Partner in Hospitality Management",
+      "title": "Your Business Growth Guarantee in Hospitality",
       "description1": "DNT Group is a leading management company in the hospitality sector, whose core mission is to maximize the potential of every hotel property.",
       "description2": "Our extensive industry experience and unwavering commitment to operational excellence allow us to achieve superior results in partnership with hotel owners.",
       "learnMore": "Learn More"
@@ -131,10 +131,10 @@
   "about": {
     "hero": {
       "subtitle": "About Us",
-      "title": "Driving Excellence in Hospitality Management",
+      "title": "Your Business Growth Guarantee in Hospitality",
       "description1": "DNT Group is a leading management company in the hospitality sector, whose core mission is to maximize the potential of every hotel property. Our extensive industry experience and unwavering commitment to operational excellence allow us to achieve superior results in partnership with hotel owners.",
       "description2": "Our approach is a synthesis of proven management methodologies and innovative strategies. This ensures that every property we manage remains competitive and achieves optimal profitability in today's dynamic market.",
-      "description3": "From boutique hotels to large-scale resorts, we implement the same high standards of quality, efficiency, and guest-oriented service, establishing ourselves as a trusted name in hotel management.",
+      "description3": "From boutique hotels to large-scale resorts, we implement the same high standards of quality, efficiency, and guest-oriented service.",
       "description4": "Our business philosophy is built on creating long-term partnerships based on transparency, tangible results, and mutual success."
     },
     "purpose": {
@@ -146,7 +146,7 @@
     "values": {
       "standards": {
         "title": "Standards",
-        "description": "Guest-centric excellence – High standards of service across everything from boutique hotels to large-scale resorts."
+        "description": "High standards of service and guest-centric approach are the main priorities in any business project."
       },
       "operationalExcellence": {
         "title": "Operational Excellence",
@@ -163,7 +163,7 @@
     },
     "team": {
       "subtitle": "Team",
-      "title": "Industry Experts For Your Success",
+      "title": "Industry Experts for Your Success",
       "description": "Our team consists of highly qualified and experienced professionals from the hotel industry. Each member of our company possesses deep knowledge of the hospitality sector and is distinguished by years of practical experience.",
       "prev": "Previous",
       "next": "Next"
@@ -310,8 +310,9 @@
   "blogs": {
     "hero": {
       "subtitle": "Blogs",
-      "title": "Hospitality Insights & Industry Thinking",
-      "description": "Perspectives on hotel management, industry trends, and operational excellence from our team of hospitality experts."
+      "title": "Learn More About Hotel Management",
+      "description": "Our team brings together decades of experience in hotel management. Our goal is to share our knowledge and industry standards with professionals and interested parties.",
+      "description2": "Visit our blog to find articles on hotel management, service quality improvement, and the latest trends in the hospitality industry."
     },
     "read": "Read",
     "backToBlogs": "Back to Blogs",

@@ -39,9 +39,6 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
       <div className="relative z-30 max-w-7xl mx-auto px-6 lg:px-8 w-full">
         <div className="max-w-2xl">
-          <p className="text-sm font-body font-semibold uppercase tracking-[0.25em] text-tertiary mb-4">
-            {t("subtitle")}
-          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-white leading-tight mb-6">
             {content.title}
           </h1>

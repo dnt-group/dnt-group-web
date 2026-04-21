@@ -15,9 +15,14 @@ export default async function BlogHeroSection() {
               {t("title")}
             </h1>
           </div>
-          <p className="text-base text-slate-500 leading-relaxed lg:pb-2">
-            {t("description")}
-          </p>
+          <div className="space-y-4 lg:mt-8">
+            <p className="text-base text-slate-500 leading-relaxed">
+              {t("description")}
+            </p>
+            <p className="text-base text-slate-500 leading-relaxed">
+              {t("description2")}
+            </p>
+          </div>
         </div>
       </div>
     </section>
