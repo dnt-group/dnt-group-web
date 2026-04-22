@@ -75,7 +75,7 @@ export default function BlogPostArticle({
               </div>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity duration-200 uppercase tracking-wider shrink-0"
+                className="inline-flex items-center gap-2 bg-primary hover:opacity-90 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-opacity duration-200 uppercase tracking-wider shrink-0 self-start"
               >
                 {talkToTeamLabel}
               </Link>
