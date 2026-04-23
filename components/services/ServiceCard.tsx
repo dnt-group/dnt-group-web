@@ -46,26 +46,6 @@ export default function ServiceCard({ service }: ServiceCardProps) {
             <p className="text-base text-slate-500 leading-relaxed mb-8">
               {service.body}
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary hover:text-secondary transition-colors duration-300 group/link"
-            >
-              <span className="w-8 h-px bg-primary group-hover/link:w-12 group-hover/link:bg-secondary transition-all duration-300 inline-block" />
-              {t("discuss")}
-              <svg
-                className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
           </div>
         </div>
       </div>
