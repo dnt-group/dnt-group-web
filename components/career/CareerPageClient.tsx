@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import CareerHero from "@/components/career/CareerHero";
 import CareerPositions from "@/components/career/CareerPositions";
@@ -15,6 +15,18 @@ export default function CareerPageClient({ positions }: { positions: Position[] 
   const [loading, setLoading] = useState(false);
   const [isGeneral, setIsGeneral] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const isModalOpen = Boolean(selectedPosition) || isGeneral;
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isModalOpen]);
 
   const openForm = (position: Position | null, general = false) => {
     setSelectedPosition(position);
