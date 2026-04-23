@@ -10,7 +10,7 @@ export default function CareerGeneralApply({ onGeneralApply }: { onGeneralApply:
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary leading-tight mb-4">
+            <h2 className="text-2xl lg:text-3xl font-bold text-primary leading-tight mb-4">
               {t("heading")}
             </h2>
             <p className="text-base text-primary/65 leading-relaxed">{t("description")}</p>

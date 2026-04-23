@@ -19,7 +19,7 @@ export default function CareerHero() {
             <h1
               className={`font-bold text-primary leading-[1.1] ${
                 isGeorgian
-                  ? "text-3xl sm:text-4xl lg:text-5xl"
+                  ? "text-2xl sm:text-3xl lg:text-5xl"
                   : "text-4xl sm:text-5xl lg:text-6xl"
               }`}
             >

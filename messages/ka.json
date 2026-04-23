@@ -271,6 +271,10 @@
       "noPositionsDescription": "ამჟამად ღია პოზიცია არ არის",
       "typeFullTime": "სრულ განაკვეთზე",
       "typeProjectBased": "პროექტული",
+      "requirements": "მოთხოვნები",
+      "duties": "ფუნქცია-მოვალეობები",
+      "additionalInfo": "დამატებითი ინფორმაცია",
+      "salary": "ანაზღაურება",
       "applyNow": "გაგზავნა"
     },
     "filters": {

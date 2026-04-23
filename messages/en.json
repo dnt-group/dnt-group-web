@@ -271,6 +271,10 @@
       "noPositionsDescription": "No open positions available at the moment.",
       "typeFullTime": "Full-time",
       "typeProjectBased": "Project-based",
+      "requirements": "Requirements",
+      "duties": "ფუნქცია-მოვალეობები",
+      "additionalInfo": "Additional Info",
+      "salary": "Salary",
       "applyNow": "Apply Now"
     },
     "filters": {

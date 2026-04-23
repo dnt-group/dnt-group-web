@@ -5,8 +5,11 @@ export type Position = {
   title: string;
   type: "Full-time" | "Project-based";
   location: string;
-  desc: string;
+  description?: string;
   requirements: string[];
+  salary?: string;
+  duties?: string[];
+  additionalInfo?: string;
 };
 
 type CareerDocument = {
@@ -15,8 +18,12 @@ type CareerDocument = {
     title?: string;
     type?: "Full-time" | "Project-based";
     location?: string;
-    desc?: string;
+    description?: string;
+    legacyDescription?: string;
     requirements?: string[];
+    salary?: string;
+    duties?: string[];
+    additionalInfo?: string;
   }[];
 };
 
@@ -30,8 +37,12 @@ const careerQuery = `
       title,
       type,
       location,
-      desc,
-      requirements
+      description,
+      "legacyDescription": desc,
+      requirements,
+      salary,
+      duties,
+      additionalInfo
     }
   }
 `;
@@ -49,7 +60,6 @@ export async function getCareerPositions(locale: string): Promise<Position[]> {
             position?.title &&
             position?.type &&
             position?.location &&
-            position?.desc &&
             position?.requirements?.length
         )
     )
@@ -58,7 +68,10 @@ export async function getCareerPositions(locale: string): Promise<Position[]> {
       title: position.title!,
       type: position.type!,
       location: position.location!,
-      desc: position.desc!,
+      description: position.description ?? position.legacyDescription,
       requirements: position.requirements!,
+      salary: position.salary,
+      duties: position.duties,
+      additionalInfo: position.additionalInfo,
     }));
 }
