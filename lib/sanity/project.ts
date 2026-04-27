@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export type Project = {
   id: string;
@@ -74,8 +74,12 @@ const projectBySlugQuery = `
   }
 `;
 export async function getProjects(locale: string): Promise<Project[]> {
-  if (!sanityClient) return [];
-  const docs = await sanityClient.fetch<ProjectDocument[]>(projectsQuery, { locale });
+  const docs = await sanityFetch<ProjectDocument[]>(
+    projectsQuery,
+    { locale },
+    { tags: ["projects"] }
+  );
+  if (!docs) return [];
   return docs
     .filter((doc) => Boolean(doc.slug && doc.imageUrl))
     .map((doc) => ({
@@ -109,11 +113,10 @@ export async function getProjectBySlug(
   locale: string,
   slug: string
 ): Promise<ProjectDetail | null> {
-  if (!sanityClient) return null;
-
-  const doc = await sanityClient.fetch<ProjectDetailDocument | null>(
+  const doc = await sanityFetch<ProjectDetailDocument>(
     projectBySlugQuery,
-    { locale, slug }
+    { locale, slug },
+    { tags: ["projects", `project-${slug}`] }
   );
 
   if (!doc?.featuredImg) return null;

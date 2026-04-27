@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export type ContactSocialPlatform = "linkedin" | "instagram" | "facebook";
 
@@ -45,27 +45,23 @@ const contactQuery = `
   }
 `;
 
-export async function getContactSettings(locale: string): Promise<ContactSettings> {
+const emptyContactSettings: ContactSettings = {
+  address: "",
+  phone: "",
+  email: "",
+  workingHours: "",
+  mapEmbedUrl: "",
+  mapsUrl: "",
+  socialLinks: [],
+};
 
-  if (!sanityClient) return {
-    address: "",
-    phone: "",
-    email: "",
-    workingHours: "",
-    mapEmbedUrl: "",
-    mapsUrl: "",
-    socialLinks: [],
-  };
-  const doc = await sanityClient.fetch<ContactDocument | null>(contactQuery, { locale });
-  if (!doc) return {
-    address: "",
-    phone: "",
-    email: "",
-    workingHours: "",
-    mapEmbedUrl: "",
-    mapsUrl: "",
-    socialLinks: [],
-  };
+export async function getContactSettings(locale: string): Promise<ContactSettings> {
+  const doc = await sanityFetch<ContactDocument>(
+    contactQuery,
+    { locale },
+    { tags: ["contact"] }
+  );
+  if (!doc) return emptyContactSettings;
 
   const socialLinks = (doc.socialLinks ?? [])
     .filter(

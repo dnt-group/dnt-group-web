@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export type Position = {
   id: string;
@@ -48,9 +48,11 @@ const careerQuery = `
 `;
 
 export async function getCareerPositions(locale: string): Promise<Position[]> {
-  if (!sanityClient) return [];
-
-  const doc = await sanityClient.fetch<CareerDocument | null>(careerQuery, { locale });
+  const doc = await sanityFetch<CareerDocument>(
+    careerQuery,
+    { locale },
+    { tags: ["career"] }
+  );
 
   return (doc?.positions ?? [])
     .filter(

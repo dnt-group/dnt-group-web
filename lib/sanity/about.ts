@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export type StatKey = "properties" | "revenue" | "guests" | "experience";
 
@@ -24,8 +24,9 @@ const fallbackStats: StatValues = {
   experience: "10+",
 };
 
-const aboutQuery = `
-  *[
+const aboutPageQuery = `
+{
+  "about": *[
     _type == "aboutPage" &&
     (!defined(language) || language == $locale)
   ][0]{
@@ -36,11 +37,8 @@ const aboutQuery = `
       bio,
       "img": image.asset->url
     }
-  }
-`;
-
-const statisticsQuery = `
-  *[
+  },
+  "statistics": *[
     _type == "statistics" &&
     (!defined(language) || language == $locale)
   ][0]{
@@ -49,33 +47,36 @@ const statisticsQuery = `
       value
     }
   }
+}
 `;
 
-type AboutDocument = {
-  teamMembers?: {
-    _key?: string;
-    name?: string;
-    role?: string;
-    bio?: string;
-    img?: string;
-  }[];
-};
-
-type StatisticsDocument = {
-  stats?: { key?: StatKey; value?: string }[];
+type AboutPageQueryResult = {
+  about: {
+    teamMembers?: {
+      _key?: string;
+      name?: string;
+      role?: string;
+      bio?: string;
+      img?: string;
+    }[];
+  } | null;
+  statistics: {
+    stats?: { key?: StatKey; value?: string }[];
+  } | null;
 };
 
 export async function getAboutPageData(locale: string): Promise<AboutPageData> {
-  if (!sanityClient) {
+  const result = await sanityFetch<AboutPageQueryResult>(
+    aboutPageQuery,
+    { locale },
+    { tags: ["about", "statistics"] }
+  );
+
+  if (!result) {
     return { stats: fallbackStats, teamMembers: [] };
   }
 
-  const [aboutDoc, statisticsDoc] = await Promise.all([
-    sanityClient.fetch<AboutDocument | null>(aboutQuery, { locale }),
-    sanityClient.fetch<StatisticsDocument | null>(statisticsQuery, { locale }),
-  ]);
-
-  const statEntries = (statisticsDoc?.stats ?? []).filter(
+  const statEntries = (result.statistics?.stats ?? []).filter(
     (item): item is { key: StatKey; value: string } => Boolean(item?.key && item?.value)
   );
 
@@ -87,9 +88,9 @@ export async function getAboutPageData(locale: string): Promise<AboutPageData> {
     { ...fallbackStats }
   );
 
-  const teamMembers = (aboutDoc?.teamMembers ?? [])
+  const teamMembers = (result.about?.teamMembers ?? [])
     .filter(
-      (member): member is Required<AboutDocument>["teamMembers"][number] =>
+      (member): member is Required<NonNullable<AboutPageQueryResult["about"]>>["teamMembers"][number] =>
         Boolean(member?._key && member?.name && member?.role && member?.bio && member?.img)
     )
     .map((member) => ({

@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export type BlogSection = {
   heading: string;
@@ -96,9 +96,12 @@ function mapBlog(doc: BlogDocument): BlogPost | null {
 }
 
 export async function getBlogs(locale: string): Promise<BlogPost[]> {
-  if (!sanityClient) return [];
-
-  const docs = await sanityClient.fetch<BlogDocument[]>(blogsQuery, { locale });
+  const docs = await sanityFetch<BlogDocument[]>(
+    blogsQuery,
+    { locale },
+    { tags: ["blogs"] }
+  );
+  if (!docs) return [];
   return docs.map(mapBlog).filter((post): post is BlogPost => Boolean(post));
 }
 
@@ -106,12 +109,11 @@ export async function getBlogBySlug(
   locale: string,
   slug: string
 ): Promise<BlogPost | null> {
-  if (!sanityClient) return null;
-
-  const doc = await sanityClient.fetch<BlogDocument | null>(blogBySlugQuery, {
-    locale,
-    slug,
-  });
+  const doc = await sanityFetch<BlogDocument>(
+    blogBySlugQuery,
+    { locale, slug },
+    { tags: ["blogs", `blog-${slug}`] }
+  );
 
   if (!doc) return null;
   return mapBlog(doc);

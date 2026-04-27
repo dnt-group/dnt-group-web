@@ -37,7 +37,9 @@ export async function getHomeHeroContent(locale: string): Promise<HomeHeroConten
 
   const doc = await sanityClient
     .withConfig({ useCdn: false })
-    .fetch<HomeHeroDocument>(homeHeroQuery, { locale });
+    .fetch<HomeHeroDocument>(homeHeroQuery, { locale }, {
+      next: { revalidate: 86400, tags: ["home-hero"] },
+    });
 
   return {
     backgroundVideoUrl: doc?.backgroundVideoUrl ?? fallbackHomeHero.backgroundVideoUrl,

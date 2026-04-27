@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity/client";
+import { sanityFetch } from "@/lib/sanity/client";
 
 export interface Service {
   id: string;
@@ -34,9 +34,12 @@ const servicesQuery = `
 `;
 
 export async function getServices(locale: string): Promise<Service[]> {
-  if (!sanityClient) return [];
-
-  const docs = await sanityClient.fetch<ServiceDocument[]>(servicesQuery, { locale });
+  const docs = await sanityFetch<ServiceDocument[]>(
+    servicesQuery,
+    { locale },
+    { tags: ["services"] }
+  );
+  if (!docs) return [];
 
   return docs.map((doc, index) => ({
     id: doc._id,
